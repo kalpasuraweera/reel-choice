@@ -1,0 +1,19 @@
+import React from "react";
+import NavBar from "../components/NavBar";
+import { Box, Button } from "@mui/material";
+
+function Home() {
+  return (
+    <div>
+      <NavBar />
+      <Box sx={{ height: "100px", bgcolor: "background.default" }} />
+      <h1>Welcome to the Home Page</h1>
+      <p>This is the content of the home page.</p>
+      <Button variant="contained" color="primary">
+        Click Me
+      </Button>
+    </div>
+  );
+}
+
+export default Home;
