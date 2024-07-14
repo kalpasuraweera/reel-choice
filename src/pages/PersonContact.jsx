@@ -12,7 +12,7 @@ const PersonContact = () => {
           Contact {name}
         </Typography>
         <Typography variant="body1" component="p" style={{ marginTop: "20px" }}>
-          Email: {name.toLowerCase()}@example.com
+          Email: {name.toLowerCase()}@reelchoice.com
         </Typography>
         <Typography variant="body1" component="p">
           Phone: +94 77 1234567
