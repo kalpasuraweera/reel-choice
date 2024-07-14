@@ -151,8 +151,8 @@ function Contact() {
                 <ListItemIcon>
                   <AccountCircle />
                 </ListItemIcon>
-                <ListItemText primary="John Doe" />
-                <Button variant="contained" component={Link} to="/contact/john">
+                <ListItemText primary="Will Smith" />
+                <Button variant="contained" component={Link} to="/contact/will">
                   View
                 </Button>
               </ListItem>
@@ -160,8 +160,8 @@ function Contact() {
                 <ListItemIcon>
                   <AccountCircle />
                 </ListItemIcon>
-                <ListItemText primary="John Doe" />
-                <Button variant="contained" component={Link} to="/contact/john">
+                <ListItemText primary="Mia Johnson" />
+                <Button variant="contained" component={Link} to="/contact/mia">
                   View
                 </Button>
               </ListItem>
