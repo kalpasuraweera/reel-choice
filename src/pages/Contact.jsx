@@ -64,7 +64,6 @@ function Contact() {
 
   return (
     <>
-      <NavBar />
       <Grid container padding={2} spacing={2}>
         <Grid item md={6} xs={12} padding={2}>
           <Typography variant="h3">Contact Us</Typography>

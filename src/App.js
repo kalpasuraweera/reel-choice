@@ -4,6 +4,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { createContext, useEffect, useState } from "react";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 export const ThemeContext = createContext();
 
@@ -32,6 +34,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <BrowserRouter>
+          <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -42,6 +45,7 @@ function App() {
             <Route path="/contact/:name" element={<h1>Contact Us</h1>} />
             <Route path="*" element={<h1>Page Not Found</h1>} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </ThemeProvider>
     </ThemeContext.Provider>

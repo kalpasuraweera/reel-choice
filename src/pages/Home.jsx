@@ -3,6 +3,9 @@ import NavBar from "../components/NavBar";
 import {
   Box,
   Button,
+  Card,
+  CardContent,
+  CardMedia,
   Dialog,
   DialogActions,
   DialogContent,
@@ -59,7 +62,6 @@ function Home() {
 
   return (
     <>
-      <NavBar />
       <Dialog open={open}>
         <DialogTitle>Enter Your Name</DialogTitle>
         <DialogContent>
@@ -97,7 +99,7 @@ function Home() {
             <Typography variant="h3" color="#fff">
               <Typography
                 variant="span"
-                color="#ADD8E6"
+                color="primary.main"
                 sx={{ display: "block" }}
               >
                 {greeting} {username},
@@ -116,39 +118,140 @@ function Home() {
           <img src="/home_img.png" alt="Home" ref={imgRef} />
         </Grid>
       </Grid>
-      <Box
+      <Grid container justifyContent="center" sx={{ mt: 4, mb: 4 }}>
+        <Typography variant="h3" gutterBottom>
+          This is how much time you spent on our website
+        </Typography>
+        <Grid container justifyContent="center" spacing={2}>
+          <Grid item>
+            <Box
+              sx={{
+                backgroundColor: "primary.main",
+                padding: "1rem",
+                borderRadius: "10px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                minWidth: "150px",
+              }}
+            >
+              <Typography variant="h4">Hours</Typography>
+              <Typography variant="h4">
+                {Math.floor(time / 3600) < 10 ? "0" : ""}
+                {Math.floor(time / 3600)}
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item>
+            <Box
+              sx={{
+                backgroundColor: "primary.main",
+                padding: "1rem",
+                borderRadius: "10px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Typography variant="h4">Minutes</Typography>
+              <Typography variant="h4">
+                {Math.floor((time % 3600) / 60) < 10 ? "0" : ""}
+                {Math.floor((time % 3600) / 60)}
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item>
+            <Box
+              sx={{
+                backgroundColor: "primary.main",
+                padding: "1rem",
+                borderRadius: "10px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Typography variant="h4">Seconds</Typography>
+              <Typography variant="h4">
+                {Math.floor(time % 60) < 10 ? "0" : ""}
+                {Math.floor(time % 60)}
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        justifyContent="center"
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "1rem",
-          padding: "1rem",
+          mt: 4,
+          mb: 4,
+          padding: 2,
         }}
       >
-        <Typography variant="h4">
-          This is how much time you spent in our website
+        <Typography variant="h3" gutterBottom>
+          Popular Movies
         </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            gap: "1rem",
-          }}
-        >
-          <Typography variant="h5">
-            {Math.floor(time / 3600) < 10 ? "0" : ""}
-            {Math.floor(time / 3600)}:
-          </Typography>
-          <Typography variant="h5">
-            {Math.floor(time / 60) < 10 ? "0" : ""}
-            {Math.floor(time / 60)}:
-          </Typography>
-          <Typography variant="h5">
-            {time % 60 < 10 ? "0" : ""}
-            {time % 60}
-          </Typography>
-        </Box>
-      </Box>
+        <Grid container spacing={2}>
+          <Grid item md={4} xs={12}>
+            <Card>
+              <CardMedia
+                component="img"
+                height="300"
+                image="/51f4B2SLAyL._AC_UF894,1000_QL80_.jpg"
+              />
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  Batman Begins
+                </Typography>
+                <Typography variant="body2">
+                  After witnessing the murder of his parents, Bruce Wayne trains
+                  himself to fight against injustice, donning the persona of
+                  Batman to protect Gotham.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item md={4} xs={12}>
+            <Card>
+              <CardMedia
+                component="img"
+                height="300"
+                image="/p7825626_p_v8_ae.jpg"
+              />
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  Inception
+                </Typography>
+                <Typography variant="body2">
+                  A thief who enters the dreams of others to steal secrets from
+                  their subconscious faces the heist of his lifetime, to plant
+                  an idea into someone's mind.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item md={4} xs={12}>
+            <Card>
+              <CardMedia
+                component="img"
+                height="300"
+                image="/interstellar-movie-poster-design.jpg"
+              />
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  Interstellar
+                </Typography>
+                <Typography variant="body2">
+                  A team of explorers travel through a wormhole in space in an
+                  attempt to ensure humanity's survival by finding a new home.
+                  But time is always matters.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Grid>
     </>
   );
 }

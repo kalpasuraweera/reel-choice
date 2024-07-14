@@ -12,7 +12,6 @@ import {
 function About() {
   return (
     <>
-      <NavBar />
       <Box sx={{ flexGrow: 1, m: 2 }}>
         <Typography variant="h2" gutterBottom>
           About Us
