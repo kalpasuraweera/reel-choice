@@ -6,6 +6,10 @@ import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { createContext, useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import History from "./pages/History";
+import Team from "./pages/Team";
+import Values from "./pages/Values";
+import PersonContact from "./pages/PersonContact";
 
 export const ThemeContext = createContext();
 
@@ -38,11 +42,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/about/history" element={<h1>History</h1>} />
-            <Route path="/about/team" element={<h1>Team</h1>} />
-            <Route path="/about/services" element={<h1>Services</h1>} />
+            <Route path="/about/history" element={<History />} />
+            <Route path="/about/team" element={<Team />} />
+            <Route path="/about/values" element={<Values />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/contact/:name" element={<h1>Contact Us</h1>} />
+            <Route path="/contact/:name" element={<PersonContact />} />
             <Route path="*" element={<h1>Page Not Found</h1>} />
           </Routes>
           <Footer />

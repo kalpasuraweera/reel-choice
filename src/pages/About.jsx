@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from "../components/NavBar";
 import {
   Box,
   Grid,
@@ -8,6 +7,7 @@ import {
   CardMedia,
   CardContent,
 } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 function About() {
   return (
@@ -27,7 +27,7 @@ function About() {
               />
               <CardContent>
                 <Typography variant="h5" component="div">
-                  Our History
+                  <NavLink to="/about/history">Company History</NavLink>
                 </Typography>
                 <Typography variant="body2">
                   Our company has been in the industry for over 10 years,
@@ -62,7 +62,7 @@ function About() {
           </Grid>
           <Grid item xs={12}>
             <Typography variant="h4" gutterBottom>
-              Meet the Team
+              <NavLink to="/about/team">Meet the Team</NavLink>
             </Typography>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6} md={4}>
@@ -141,7 +141,7 @@ function About() {
           </Grid>
           <Grid item xs={12}>
             <Typography variant="h5" gutterBottom>
-              Our Values
+              <NavLink to="/about/values">Our Values</NavLink>
             </Typography>
             <Typography paragraph>
               Integrity: We conduct our business with honesty and hold ourselves

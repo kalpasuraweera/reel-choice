@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "../components/NavBar";
 import {
   Box,
   Button,
@@ -12,14 +11,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import {
-  AccountCircle,
-  Email,
-  LocationCity,
-  Pages,
-  Phone,
-  WebStories,
-} from "@mui/icons-material";
+import { AccountCircle, Email, LocationCity, Phone } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 function Contact() {
@@ -41,6 +33,15 @@ function Contact() {
     }
   }, [email]);
 
+  useEffect(() => {
+    const contact = JSON.parse(localStorage.getItem("contact"));
+    if (contact) {
+      setName(contact.name);
+      setEmail(contact.email);
+      setMessage(contact.message);
+    }
+  }, []);
+
   const handleSubmit = () => {
     if (!name) {
       setNameError("Name is required");
@@ -58,6 +59,7 @@ function Contact() {
       setMessageError("");
     }
     if (name && email && message) {
+      localStorage.setItem("contact", JSON.stringify({ name, email, message }));
       setSubmitted(true);
     }
   };
