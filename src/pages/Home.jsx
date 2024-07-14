@@ -7,6 +7,7 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  Grid,
   TextField,
   Typography,
 } from "@mui/material";
@@ -27,7 +28,7 @@ function Home() {
   };
 
   useEffect(() => {
-    const name = localStorage.getItem("username");
+    const name = localStorage.getItem("username") || username;
     if (name) {
       const hours = new Date().getHours();
       if (hours < 12) {
@@ -43,7 +44,7 @@ function Home() {
     } else {
       setOpen(true);
     }
-  }, []);
+  }, [username]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -75,45 +76,46 @@ function Home() {
         </DialogActions>
       </Dialog>
 
-      <Box
+      <Grid
+        container
+        alignItems="center"
         sx={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-          marginTop: "2rem",
-          marginBottom: "5rem",
+          paddingTop: "2rem",
+          paddingBottom: "5rem",
+          backgroundImage: "url(/home_bg.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            gap: "1rem",
-          }}
-        >
-          <Typography variant="h3">
-            <Typography
-              variant="span"
-              color="primary"
-              sx={{ display: "block" }}
-            >
-              {greeting} {username},
+        <Grid item xs={12} md={6}>
+          <Box
+            sx={{
+              textAlign: { xs: "center", md: "left" },
+              padding: { xs: 2, md: 4 },
+            }}
+          >
+            <Typography variant="h3" color="#fff">
+              <Typography
+                variant="span"
+                color="#ADD8E6"
+                sx={{ display: "block" }}
+              >
+                {greeting} {username},
+              </Typography>
+              Welcome to ReelChoice
             </Typography>
-            Welcome to ReelChoice
-          </Typography>
-          <Typography variant="p">
-            Get personalized recommendations for movies and TV shows
-          </Typography>
-          <Button variant="contained" color="primary">
-            Get Started
-          </Button>
-        </Box>
-        <Box>
+            <Typography variant="h5" color="#f2f2f2">
+              Get personalized recommendations for movies and TV shows
+            </Typography>
+            <Button variant="contained" color="primary">
+              Get Started
+            </Button>
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={6}>
           <img src="/home_img.png" alt="Home" ref={imgRef} />
-        </Box>
-      </Box>
+        </Grid>
+      </Grid>
       <Box
         sx={{
           display: "flex",
