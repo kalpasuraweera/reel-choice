@@ -13,9 +13,11 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const imgRef = useRef(null);
+  const navigation = useNavigate();
 
   const [username, setUsername] = useState("");
   const [greeting, setGreeting] = useState("");
@@ -59,6 +61,7 @@ function Home() {
     imgRef.current.style.animation = "swipeRight 1s ease-out forwards";
   });
 
+  const handleGetStart = () => navigation("/contact");
   return (
     <>
       <Dialog open={open}>
@@ -108,7 +111,11 @@ function Home() {
             <Typography variant="h5" color="#f2f2f2">
               Get personalized recommendations for movies and TV shows
             </Typography>
-            <Button variant="contained" color="primary">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleGetStart}
+            >
               Get Started
             </Button>
           </Box>
