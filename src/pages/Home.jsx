@@ -89,6 +89,7 @@ function Home() {
           backgroundImage: "url(/home_bg.jpg)",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <Grid item xs={12} md={6}>
@@ -98,7 +99,12 @@ function Home() {
               padding: { xs: 2, md: 4 },
             }}
           >
-            <Typography variant="h3" color="#fff">
+            <Typography
+              variant="h3"
+              color="#fff"
+              fontFamily="Oswald"
+              fontWeight={600}
+            >
               <Typography
                 variant="span"
                 color="primary.main"
